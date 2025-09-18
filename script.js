@@ -3,8 +3,10 @@ let Save_Total_Score_BTN = document.querySelector("#Save_Total_Score_BTN");
 let Load_Total_Score_BTN = document.querySelector("#Load_Total_Score_BTN");
 let Total_Score_Counter_DOM = document.querySelector("#Total_Score_Counter");
 let Score_Counter_DOM = document.querySelector("#Current_Score");
+
 let Roll_Amount_Input = document.querySelector("#Roll_Amount_Input");
 let Roll_BTN = document.querySelector("#Roll_BTN");
+let Add_Roll_BTN = document.querySelector("#Add_Roll_BTN");
 
 let Final_Score = { Like: 0, Dislike: 0 };
 let Current_Score = { Like: 0, Dislike: 0 };
@@ -15,11 +17,12 @@ function Update_Score_Counters() {
     Total_Score_Counter_DOM.innerHTML = `Total Score: Likes: ${Final_Score.Like} and Dislikes: ${Final_Score.Dislike}`;
 
     Score_Counter_DOM.innerHTML = `Score: Likes: ${Current_Score.Like} and Dislikes: ${Current_Score.Dislike}`;
+    console.log("Score Counters Updated")
 }
 
 function Load_Total_Score() {
-    let Likes_Saved = localStorage.getItem("Total_Score_Like") || 0;
-    let Dislike_Saved = localStorage.getItem("Total_Score_Dislike") || 0; 
+    let Likes_Saved = parseInt(localStorage.getItem("Total_Score_Like")) || 0;
+    let Dislike_Saved = parseInt(localStorage.getItem("Total_Score_Dislike")) || 0; 
     Final_Score.Like = Likes_Saved;
     Final_Score.Dislike = Dislike_Saved;
 
@@ -41,9 +44,14 @@ function Delete_Total_Score (){
     Final_Score.Dislike = 0;
     console.log("Deleted");
 }
-function Add_Total_Score (Like, Dislike){
-    Final_Score.Like += Like;
-    Final_Score.Dislike += Dislike;
+function Add_Current_To_Total_Score (){
+    
+    Final_Score.Like += Current_Score.Like;
+    Final_Score.Dislike += Current_Score.Dislike;
+    Current_Score.Like = 0;
+    Current_Score_Dislike = 0;
+    Update_Score_Counters();
+    console.log("Current score added to total score");
 }
 
 function Generate_Result(Amount){
@@ -64,17 +72,17 @@ function Generate_Result(Amount){
 }
 
 function Roll(){
-    console.log("T")
-    let Roll_Results = Generate_Result(5);
-    console.log(Roll_Results)
+    let Roll_Results = Generate_Result(Roll_Amount_Input.value || 1);
+    console.log(Roll_Results);
     Current_Score.Like = Roll_Results.Like;
     Current_Score.Dislike = Roll_Results.Dislike;
     Update_Score_Counters();
-
 }
+
 
 
 //localStorage.setItem("Total_Score_Like", 5)
 Save_Total_Score_BTN.addEventListener("click", Save_Total_Score);
 Load_Total_Score_BTN.addEventListener("click", Load_Total_Score);
-Roll_BTN.addEventListener("Click", Roll);
+Roll_BTN.addEventListener("click", Roll);
+Add_Roll_BTN.addEventListener("click", Add_Current_To_Total_Score);
