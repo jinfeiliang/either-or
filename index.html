@@ -1,28 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Project 3: Eiher Or</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-
+        
+      <div class="Current_Score_Container">
+        <div class="Current_Likes">
+            <img class="Score_IMG" src="https://www.freeiconspng.com/thumbs/thumbs-up-icon/blue-thumbs-up-icon-9.png">
+            <h1 id="Current_Score_Likes">999</h1>
+        </div>
+        <div class="Current_Dislikes">
+            <img class="Score_IMG" src="https://www.freeiconspng.com/thumbs/thumbs-up-icon/blue-thumbs-up-icon-9.png">
+            <h1 id="Current_Score_Dislike">999</h1>
+        </div>
         <h1 id="Current_Score">Score: Likes: LOAD and Dislikes: LOAD</h1>
 
-        <input type="number" id="Roll_Amount_Input">
-        <button id="Roll_BTN">Roll</button>
-        <button id="Add_Roll_BTN">Add Roll to total score</button>
+        <div id="Current_Score_Controls">
+            <input type="number" id="Roll_Amount_Input" />
+            <button id="Roll_BTN">Roll</button>
+            <button id="Add_Roll_BTN">Add Roll to total score</button>
+        </div>
 
- <h1 id="Total_Score_Counter">Total Score: Likes: LOAD and Dislikes: LOAD</h1>
-        <button  id="Save_Total_Score_BTN">Save to LocalStorage</button>
-        <button  id="Load_Total_Score_BTN">Load from LocalStorage</button>
+      </div>
 
+      <div class="two">
+        
+      <h1 id="Total_Score_Counter">
+        Total Score: Likes: LOAD and Dislikes: LOAD
+      </h1>
+      <button id="Save_Total_Score_BTN">Save to LocalStorage</button>
+      <button id="Load_Total_Score_BTN">Load from LocalStorage</button>
+      </div>
     </div>
 
     <script src="script.js"></script>
-
-</body>
-
+  </body>
 </html>
