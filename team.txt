@@ -6,5 +6,5 @@ If many enter your name there as well
 
 Roles
 HTML:
-CSS: 
-JavaScript:
+CSS: Amaya
+JavaScript: Jin

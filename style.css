@@ -4,3 +4,38 @@ html {
     padding: 0;
     margin: 0;
 }
+
+#Save_Total_Score_BTN{
+
+background-color: rgb(28, 123, 123);
+border-radius: 5px;
+padding: 20px;
+border: 2px solid black;
+font-size: 20px;
+}
+
+#Load_Total_Score_BTN{
+
+background-color: rgb(54, 227, 6);
+
+border-radius: 5px;
+padding: 20px;
+border: 2px solid black;
+font-size: 20px;
+
+}
+
+.container{
+
+    text-align: center;
+
+    background-color: bisque;
+}
+
+.Roll_BTN{
+
+}
+
+.Add_Roll_BTN{
+    
+}
