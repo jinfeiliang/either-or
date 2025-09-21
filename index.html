@@ -7,36 +7,45 @@
     <title>Project 3: Eiher Or</title>
   </head>
   <body>
-    <div class="container">
-        
+    <main class="container">
+      <header>
+        <h1 id="Total_Score_Counter">
+          Total Score: Likes: LOAD and Dislikes: LOAD
+        </h1>
+        <button id="Save_Total_Score_BTN">Save to LocalStorage</button>
+        <!--<button id="Load_Total_Score_BTN">Load from LocalStorage</button> -->
+      </header>
+
       <div class="Current_Score_Container">
-        <div class="Current_Likes">
-            <img class="Score_IMG" src="https://www.freeiconspng.com/thumbs/thumbs-up-icon/blue-thumbs-up-icon-9.png">
-            <h1 id="Current_Score_Likes">999</h1>
-        </div>
-        <div class="Current_Dislikes">
-            <img class="Score_IMG" src="https://www.freeiconspng.com/thumbs/thumbs-up-icon/blue-thumbs-up-icon-9.png">
+        <div class="Current_Score_Counters">
+          <div class="Current_Likes">
+            <img
+              class="Score_IMG"
+              src="https://uxwing.com/wp-content/themes/uxwing/download/hand-gestures/like-button-icon.png"
+            />
+            <h1 id="Current_Score_Like">999</h1>
+          </div>
+          <div class="Current_Dislikes">
+            <img
+              class="Score_IMG"
+              src="https://cdn-icons-png.flaticon.com/512/3670/3670156.png"
+            />
             <h1 id="Current_Score_Dislike">999</h1>
+          </div>
         </div>
-        <h1 id="Current_Score">Score: Likes: LOAD and Dislikes: LOAD</h1>
+        <!-- <h1 id="Current_Score">Score: Likes: LOAD and Dislikes: LOAD</h1> -->
+
+        
 
         <div id="Current_Score_Controls">
-            <input type="number" id="Roll_Amount_Input" />
+          <div style="display: flex; justify-content: center">
             <button id="Roll_BTN">Roll</button>
-            <button id="Add_Roll_BTN">Add Roll to total score</button>
+            <input value="10" type="number" id="Roll_Amount_Input" />
+          </div>
+          <button id="Add_Roll_BTN">Add Roll to total score</button>
         </div>
-
       </div>
-
-      <div class="two">
-        
-      <h1 id="Total_Score_Counter">
-        Total Score: Likes: LOAD and Dislikes: LOAD
-      </h1>
-      <button id="Save_Total_Score_BTN">Save to LocalStorage</button>
-      <button id="Load_Total_Score_BTN">Load from LocalStorage</button>
-      </div>
-    </div>
+    </main>
 
     <script src="script.js"></script>
   </body>

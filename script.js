@@ -2,7 +2,10 @@
 let Save_Total_Score_BTN = document.querySelector("#Save_Total_Score_BTN");
 let Load_Total_Score_BTN = document.querySelector("#Load_Total_Score_BTN");
 let Total_Score_Counter_DOM = document.querySelector("#Total_Score_Counter");
-let Score_Counter_DOM = document.querySelector("#Current_Score");
+// NO IN USE let Score_Counter_DOM = document.querySelector("#Current_Score");
+
+let Score_Counter_Likes_DOM = document.querySelector("#Current_Score_Like");
+let Score_Counter_Dislikes_DOM = document.querySelector("#Current_Score_Dislike");
 
 let Roll_Amount_Input = document.querySelector("#Roll_Amount_Input");
 let Roll_BTN = document.querySelector("#Roll_BTN");
@@ -11,12 +14,23 @@ let Add_Roll_BTN = document.querySelector("#Add_Roll_BTN");
 let Final_Score = { Like: 0, Dislike: 0 };
 let Current_Score = { Like: 0, Dislike: 0 };
 
-
+function roundToNearestTenth(num) {
+  return Math.round(num * 10) / 10;
+}
 
 function Update_Score_Counters() {
     Total_Score_Counter_DOM.innerHTML = `Total Score: Likes: ${Final_Score.Like} and Dislikes: ${Final_Score.Dislike}`;
 
-    Score_Counter_DOM.innerHTML = `Score: Likes: ${Current_Score.Like} and Dislikes: ${Current_Score.Dislike}`;
+    //Score_Counter_DOM.innerHTML = `Score: Likes: ${Current_Score.Like} and Dislikes: ${Current_Score.Dislike}`;
+
+    let Total = Current_Score.Like + Current_Score.Dislike;
+
+    let Like_Percentage = (Current_Score.Like / Total * 100) || 0;
+    let Dislike_Percentage = (Current_Score.Dislike / Total * 100) || 0;
+
+    Score_Counter_Likes_DOM.innerHTML = `${roundToNearestTenth(Like_Percentage)}%(${Current_Score.Like})`;
+    Score_Counter_Dislikes_DOM.innerHTML = `${roundToNearestTenth(Dislike_Percentage)}%(${Current_Score.Dislike})`;
+
     console.log("Score Counters Updated")
 }
 
@@ -83,6 +97,8 @@ function Roll(){
 
 //localStorage.setItem("Total_Score_Like", 5)
 Save_Total_Score_BTN.addEventListener("click", Save_Total_Score);
-Load_Total_Score_BTN.addEventListener("click", Load_Total_Score);
+//Load_Total_Score_BTN.addEventListener("click", Load_Total_Score);
 Roll_BTN.addEventListener("click", Roll);
 Add_Roll_BTN.addEventListener("click", Add_Current_To_Total_Score);
+
+Load_Total_Score();
