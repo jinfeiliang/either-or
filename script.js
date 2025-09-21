@@ -2,6 +2,10 @@
 let Save_Total_Score_BTN = document.querySelector("#Save_Total_Score_BTN");
 let Load_Total_Score_BTN = document.querySelector("#Load_Total_Score_BTN");
 let Total_Score_Counter_DOM = document.querySelector("#Total_Score_Counter");
+
+let Reset_Total_Score_BTN = document.querySelector("#Reset_Total_Score_BTN");
+
+
 // NO IN USE let Score_Counter_DOM = document.querySelector("#Current_Score");
 
 let Score_Counter_Likes_DOM = document.querySelector("#Current_Score_Like");
@@ -56,6 +60,7 @@ function Save_Total_Score() {
 function Delete_Total_Score (){
     Final_Score.Like = 0;
     Final_Score.Dislike = 0;
+    Update_Score_Counters()
     console.log("Deleted");
 }
 function Add_Current_To_Total_Score (){
@@ -100,5 +105,5 @@ Save_Total_Score_BTN.addEventListener("click", Save_Total_Score);
 //Load_Total_Score_BTN.addEventListener("click", Load_Total_Score);
 Roll_BTN.addEventListener("click", Roll);
 Add_Roll_BTN.addEventListener("click", Add_Current_To_Total_Score);
-
+Reset_Total_Score_BTN.addEventListener("click", Delete_Total_Score);
 Load_Total_Score();
