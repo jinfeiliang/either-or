@@ -11,6 +11,9 @@ let Score_Counter_Dislikes_DOM = document.querySelector(
   "#Current_Score_Dislike"
 );
 
+let Rolling_Effect_DOM = document.querySelector("#Rolling_Effect")
+let Current_Score_Container_DOM = document.querySelector(".Current_Score_Container")
+
 let Roll_Amount_Input = document.querySelector("#Roll_Amount_Input");
 let Roll_BTN = document.querySelector("#Roll_BTN");
 let Add_Roll_BTN = document.querySelector("#Add_Roll_BTN");
@@ -20,6 +23,29 @@ let Current_Score = { Like: 0, Dislike: 0 };
 
 function roundToNearestTenth(num) {
   return Math.round(num * 10) / 10;
+}
+
+function Rolling_Animation_Start(){
+    Rolling_Effect_DOM.innerHTML = "";
+    let HTML = `<img src="https://media.baamboozle.com/uploads/images/123481/1603096320_610822">`;
+
+    let Amount = Roll_Amount_Input.value || 1;
+
+    Rolling_Effect_DOM.classList.add("Display_Flex");
+    Rolling_Effect_DOM.classList.remove("Display_None");
+    Current_Score_Container_DOM.classList.add("Display_None");
+
+    for (i = 1; i < Amount; i++) {
+       Rolling_Effect_DOM.insertAdjacentHTML("beforeend", HTML);
+    }
+    console.log("T")
+    setTimeout( () => {
+        Rolling_Effect_DOM.classList.remove("Display_Flex");
+        Rolling_Effect_DOM.classList.add("Display_None");
+        Current_Score_Container_DOM.classList.remove("Display_None");
+        console.log("TA")
+    }, 5000)
+
 }
 
 function Update_Score_Counters() {
@@ -99,6 +125,7 @@ function Roll() {
   console.log(Roll_Results);
   Current_Score.Like = Roll_Results.Like;
   Current_Score.Dislike = Roll_Results.Dislike;
+  Rolling_Animation_Start();
   Update_Score_Counters();
 }
 

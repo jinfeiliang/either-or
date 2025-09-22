@@ -12,19 +12,43 @@ body {
 
 main{
     text-align: center;
-    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
-
 header {
     padding: 20px;
+    background-color: rgb(255, 208, 0);
+
 }
+
+.Display_Flex {
+    display: flex;
+}
+.Display_None {
+    display: none;
+}
+#Rolling_Effect {
+    background-color: aqua;
+    flex-grow: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#Rolling_Effect > img {
+    width: 80px;
+}
+
 .Current_Score_Container{
     padding: 100px;
-    background-color: rgb(109, 109, 109);
+    background-color: rgb(20, 73, 29);
 }
 .Current_Score_Counters {
     display: flex;
     justify-content: center;
+    gap: 8px;
 }
 .Score_IMG {
     width: 150px;
